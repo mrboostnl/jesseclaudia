@@ -756,6 +756,33 @@ body:not(.ready) .loader,body:not(.ready) .loader i,body:not(.ready) .hero-duo{a
 @keyframes logoPop{0%{transform:translateY(115%) rotate(6deg)}26%{transform:translateY(0) rotate(0)}72%{transform:translateY(0) rotate(0);animation-timing-function:cubic-bezier(.6,0,.9,.4)}100%{transform:translateY(-120%) rotate(-5deg)}}
 body:not(.ready) .loader-logo em{animation-play-state:paused}
 
+/* ============ v20: mobiele hero: grotere foto, quote op buikhoogte, ster in het midden ============ */
+@media (max-width:720px){
+  .hero-duo{top:calc(44px + 15vw);bottom:auto;height:auto;width:min(185vw,calc((100svh - 104px - 15vw)*1.115))}
+  .hq{top:auto;bottom:calc(74px + 1vh + 23vw + 10px);left:57%;font-size:22px;color:var(--ink)}
+  .hero-bg .burst{position:absolute;left:50%;top:47%;width:210vw;margin:-105vw 0 0 -105vw}
+}
+
+/* ============ v21: prijzen en info over het optreden ============ */
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:560px;margin:8px 0 22px}
+.price{background:var(--cream);color:var(--ink);border-radius:24px;padding:18px 20px;display:flex;flex-direction:column;gap:2px;transition:transform .45s var(--bounce)}
+.price.both{background:var(--ink);color:var(--cream)}
+.price:hover{transform:translateY(-6px) rotate(-2deg)}
+.price span{font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+.price b{font-family:var(--display);font-style:italic;font-weight:900;letter-spacing:-.03em;font-size:clamp(30px,3.6vw,54px);line-height:1;margin-top:10px;white-space:nowrap}
+.price small{font-size:13px;opacity:.75}
+.showinfo{list-style:none;max-width:560px;display:grid;gap:10px;margin:0 0 6px;font-weight:500;font-size:clamp(15px,1.2vw,17px)}
+.showinfo li{position:relative;padding-left:26px}
+.showinfo li::before{content:"✦";position:absolute;left:0;top:0;color:var(--ink)}
+@media (max-width:420px){.price{padding:14px 14px}.price b{font-size:8.2vw}}
+
+/* ============ v22: mobiel direct scrollen, witte quote, groter logo ============ */
+@media (max-width:720px){
+  .hero{height:100vh;height:100svh}
+  .hq{color:#fff;font-size:26px}
+  .logo{font-size:24px}
+}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .reveal{opacity:1;transform:none}
@@ -1016,12 +1043,23 @@ body:not(.ready) .loader-logo em{animation-play-state:paused}
   <div class="wrap grid">
     <div>
       <h2 class="display reveal">Boek het feest.</h2>
-      <p class="big reveal">Jesse solo of samen met Claudia als duo. Een half uur lang eigen hits en Hollandse meezingers, met DJ/MC erbij. Jij regelt het publiek, zij regelen de rest. Benieuwd naar de prijs? Vraag hiernaast een offerte aan.</p>
+      <p class="big reveal">Jesse solo of samen met Claudia als duo: een half uur lang eigen hits en Hollandse meezingers. Vanaf het eerste nummer doet het publiek mee.</p>
+      <div class="prices reveal">
+        <div class="price"><span>Jesse solo</span><b>€ 1.595</b><small>excl. btw en Buma</small></div>
+        <div class="price both"><span>Jesse &amp; Claudia</span><b>€ 1.895</b><small>excl. btw en Buma</small></div>
+      </div>
+      <ul class="showinfo reveal">
+        <li>Optreden van 30 minuten</li>
+        <li>Eigen hits zoals Lekker genieten en Wat een plezier, aangevuld met Nederlandstalige meezingers</li>
+        <li>Tape-optreden met eigen DJ/MC en veel interactie met het publiek</li>
+        <li>Geluid en techniek regel je zelf, volgens de rider (afhankelijk van het aantal bezoekers)</li>
+        <li>Voor tentfeesten, festivals, kermissen, carnaval, studentenfeesten, cafés, bedrijfsfeesten en privéfeesten</li>
+      </ul>
       <div class="bookvid reveal" data-par><video src="vid/l8.mp4" autoplay muted loop playsinline preload="auto" aria-label="Volle feesttent tijdens een optreden"></video><span class="script">zo ziet jouw feest eruit</span></div>
     </div>
     <form class="card reveal" id="bookform" novalidate>
-      <h3 class="display">Wil je weten wat het kost?</h3>
-      <p class="formsub">Vraag vrijblijvend een offerte aan. Vul je feest in en je krijgt een voorstel op maat.</p>
+      <h3 class="display">Vraag een offerte aan</h3>
+      <p class="formsub">Vrijblijvend. Vul je feest in en je krijgt een voorstel op maat, inclusief beschikbaarheid.</p>
       <div class="two">
         <div class="field"><label for="f-naam">Naam</label><input id="f-naam" name="naam" autocomplete="name" required></div>
         <div class="field dp"><label for="f-datum">Datum feest</label><button type="button" class="dp-btn" id="f-datum" aria-haspopup="dialog" aria-expanded="false"><span id="dp-label">Kies een datum</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="4"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></button><input type="hidden" name="datum" id="dp-val"><div class="dp-pop" id="dp-pop" role="dialog" aria-label="Kies een datum" hidden></div></div>
@@ -1029,8 +1067,8 @@ body:not(.ready) .loader-logo em{animation-play-state:paused}
       <div class="field"><label for="f-plaats">Plaats / locatie</label><input id="f-plaats" name="plaats"></div>
       <fieldset class="field"><legend>Wie wil je boeken?</legend>
         <div class="picks">
-          <label><input type="radio" name="act" value="Jesse & Claudia (duo)" checked><span>Jesse &amp; Claudia</span></label>
-          <label><input type="radio" name="act" value="Jesse solo"><span>Jesse solo</span></label>
+          <label><input type="radio" name="act" value="Jesse & Claudia (duo)" checked><span>Jesse &amp; Claudia · € 1.895</span></label>
+          <label><input type="radio" name="act" value="Jesse solo"><span>Jesse solo · € 1.595</span></label>
         </div>
       </fieldset>
       <fieldset class="field"><legend>Soort feest</legend>
