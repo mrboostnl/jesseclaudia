@@ -789,6 +789,15 @@ body::after{position:absolute;inset:auto 0 0 0;top:170vh}                 /* gra
 .stage::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27240%27 height=%27240%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%27.9%27 numOctaves=%272%27 stitchTiles=%27stitch%27/%3E%3CfeColorMatrix type=%27saturate%27 values=%270%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E");background-size:240px 240px;opacity:.2;mix-blend-mode:overlay}   /* grain op de hero-achtergrond, onder de foto */
 @media (max-width:720px){ body::after{top:100vh;top:100svh} .stage::before{mix-blend-mode:normal;opacity:.05} }
 
+/* ============ v24: hero-carrousel via script (naadloos) ============ */
+.hero-marq .track{animation:none;will-change:transform}
+.hero-marq .shift{transform:none!important}
+
+/* ============ v25 ============ */
+.formmail{font-size:14px;opacity:.8;margin-top:-6px}
+.formmail a{color:var(--orange);text-decoration:underline}
+@media (min-width:721px){.foot-r{margin-left:auto}}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .reveal{opacity:1;transform:none}
@@ -1031,7 +1040,7 @@ body::after{position:absolute;inset:auto 0 0 0;top:170vh}                 /* gra
       <div>
         <h2 class="display reveal">Volg ons op TikTok</h2>
       </div>
-      <a class="btn big reveal" data-tiktok href="https://www.tiktok.com/search?q=Jesse%20Hoer%C3%A9" target="_blank" rel="noopener">Volg ons</a>
+      <a class="btn big reveal" data-tiktok href="https://www.tiktok.com/@jessehoere" target="_blank" rel="noopener">Volg ons</a>
     </div>
     <div class="tt-grid">
       <button type="button" class="tt reveal" data-full="video/tt1.mp4" data-cap="Eigen concert?"><video src="vid/l1.mp4" autoplay muted loop playsinline preload="auto"></video><span class="tt-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l14 8-14 8z"/></svg> met geluid</span><span class="tt-cap">Eigen concert?</span></button>
@@ -1070,6 +1079,10 @@ body::after{position:absolute;inset:auto 0 0 0;top:170vh}                 /* gra
         <div class="field"><label for="f-naam">Naam</label><input id="f-naam" name="naam" autocomplete="name" required></div>
         <div class="field dp"><label for="f-datum">Datum feest</label><button type="button" class="dp-btn" id="f-datum" aria-haspopup="dialog" aria-expanded="false"><span id="dp-label">Kies een datum</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="4"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></button><input type="hidden" name="datum" id="dp-val"><div class="dp-pop" id="dp-pop" role="dialog" aria-label="Kies een datum" hidden></div></div>
       </div>
+      <div class="two">
+        <div class="field"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-tel">Telefoon</label><input id="f-tel" name="telefoon" type="tel" autocomplete="tel"></div>
+      </div>
       <div class="field"><label for="f-plaats">Plaats / locatie</label><input id="f-plaats" name="plaats"></div>
       <fieldset class="field"><legend>Wie wil je boeken?</legend>
         <div class="picks">
@@ -1090,6 +1103,7 @@ body::after{position:absolute;inset:auto 0 0 0;top:170vh}                 /* gra
       <div class="field"><label for="f-bericht">Vertel over je feest</label><textarea id="f-bericht" name="bericht" rows="3"></textarea></div>
       <button class="btn lime big" type="submit">Vraag offerte aan</button>
       <p class="note" id="booknote" role="status"></p>
+      <p class="formmail">Liever direct mailen? <a href="mailto:info@audixgroup.nl">info@audixgroup.nl</a></p>
     </form>
   </div>
 </section>
@@ -1108,8 +1122,11 @@ body::after{position:absolute;inset:auto 0 0 0;top:170vh}                 /* gra
       <!-- Logo-slot: zet per link het officiële SVG-logo uit de brand kit van het platform vóór de tekst -->
       <a href="https://open.spotify.com/artist/5AcEJsrjeoYnZ0T3e67FFH" target="_blank" rel="noopener">Spotify · Jesse</a>
       <a href="https://open.spotify.com/artist/5EdlZG9RnBQckxI3IyXcj2" target="_blank" rel="noopener">Spotify · Claudia</a>
-      <a href="https://www.youtube.com/watch?v=kzJYMmbPXq0" target="_blank" rel="noopener">YouTube</a>
-      <a data-tiktok href="https://www.tiktok.com/search?q=Jesse%20Hoer%C3%A9" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.youtube.com/channel/UCpJMXGyMvJSWa6BpjrTytQg" target="_blank" rel="noopener">YouTube · Jesse</a>
+      <a href="https://www.youtube.com/channel/UCh-alukE-DP_UGuGVRvSasw" target="_blank" rel="noopener">YouTube · Claudia</a>
+      <a data-tiktok href="https://www.tiktok.com/@jessehoere" target="_blank" rel="noopener">TikTok · Jesse</a>
+      <a href="https://www.instagram.com/jessehoeree/" target="_blank" rel="noopener">Instagram · Jesse</a>
+      <a href="contact.html">Contact</a>
       <a class="up" href="#top" aria-label="Naar boven" title="Naar boven"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
     </nav>
     <div class="foot-r"><small>© 2026 Jesse &amp; Claudia Hoeré</small><small class="made">Made by <b>Mr Boost</b></small></div>
@@ -1122,10 +1139,17 @@ body::after{position:absolute;inset:auto 0 0 0;top:170vh}                 /* gra
 <script>
 /* ============ CONFIG ============ */
 const CONFIG = {
-  tiktokUrl: '',
+  tiktokUrl: 'https://www.tiktok.com/@jessehoere',
   // Volgers: vul in als tekst (bv. '85K'), dan vervangen ze de derde en vierde kaart bij 'Twee stemmen'
   stats: { tiktok: '', instagram: '' },               // TODO: link naar het officiële TikTok-account (bv. https://www.tiktok.com/@...)
-  bookingEmail: '',            // TODO: boekingsadres invullen, dan opent het formulier een kant-en-klare mail
+  bookingEmail: 'info@audixgroup.nl',   // hier komen de offerteaanvragen binnen
+  // Optioneel: adres van een formulierdienst of eigen script dat de aanvraag als JSON (POST) aanneemt en doormailt.
+  // Leeg = het formulier opent een kant-en-klare e-mail in het mailprogramma van de bezoeker.
+  formEndpoint: '',
+  // Automatische tracklijst: adres dat de actuele Spotify-releases als JSON teruggeeft (zie api/tracks.js en de README).
+  // Geeft dit adres niets terug, dan blijft de vaste lijst hieronder (TRACKS) staan.
+  tracksEndpoint: 'api/tracks',
+  maxTracks: 10,
   spotify: { jesse:'5AcEJsrjeoYnZ0T3e67FFH', claudia:'5EdlZG9RnBQckxI3IyXcj2' }
 };
 const COLORS = ['#f0661e','#5ab9ff','#ff8fb5','#dfff4f','#f6f1e4'];
@@ -1166,7 +1190,7 @@ $$('[data-marq]').forEach(t=>{
   function update(){
     const H=innerHeight; const p=clamp(-hero.getBoundingClientRect().top/Math.max(1,hero.offsetHeight-H*.4));
     duo.style.setProperty('--z',(1+p*.2).toFixed(4)); bg.style.transform=`scale(${1+p*.5})`;
-    shift.style.transform=`translateX(${-p*18}vw)`;
+    window.__heroP=p;
     meta.style.opacity=1-clamp(p/.25); hint.style.opacity=1-clamp(p/.08); hq.style.opacity=1-clamp(p/.3);
   }
   let tick=false; addEventListener('scroll',()=>{ if(!tick){tick=true;requestAnimationFrame(()=>{update();tick=false;});} },{passive:true});
@@ -1214,6 +1238,21 @@ $$('[data-marq]').forEach(t=>{
   }).catch(()=>{});
 })();
 
+/* ============ HERO-TEKSTCARROUSEL: pixel-exacte eindeloze loop (kan niet haperen of leeglopen) ============ */
+(function(){ const wrap=$('.hero-marq'), track=$('.hero-marq .track'); if(!wrap||!track) return;
+  const unitHTML='<span>Jesse &amp; Claudia</span><span class="st">✦</span>';
+  let unit=0, x=0, last=0, vis=true;
+  function build(){ track.innerHTML=unitHTML+unitHTML; const k=track.children;
+    unit=k[2].getBoundingClientRect().left-k[0].getBoundingClientRect().left;          // exacte breedte van één herhaling
+    const n=Math.max(3,Math.ceil(innerWidth*1.3/unit)+2); track.innerHTML=unitHTML.repeat(n); }
+  build(); addEventListener('resize',build); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(build);
+  new IntersectionObserver(es=>{ vis=es[0].isIntersecting; }).observe(wrap);
+  (function loop(t){ requestAnimationFrame(loop); const dt=Math.min(64,t-last); last=t; if(!vis||!unit) return;
+    if(!reduce) x+=unit/9500*dt;
+    const off=(x+(window.__heroP||0)*innerWidth*.18)%unit;
+    track.style.transform=`translate3d(${-off}px,0,0)`; })(0);
+})();
+
 /* ============ PARALLAX op video ============ */
 (function(){ const els=$$('[data-par]'); if(!els.length||reduce) return;
   function upd(){ const H=innerHeight; els.forEach(el=>{ const r=el.getBoundingClientRect(); if(r.bottom<-100||r.top>H+100) return; const p=((r.top+r.height/2)/H-.5)*2; el.style.setProperty('--py',(clamp(p,-1.2,1.2)*-9).toFixed(2)+'%'); }); }
@@ -1255,21 +1294,38 @@ const TRACKS=[
   {t:'Lekker genieten (Uptempo Remix)',a:'jesse',who:'Jesse Hoeré & Gezellige Uptempo',d:'2:43'}
 ];
 const list=$('#playlist');
-list.innerHTML=TRACKS.map((x,i)=>`<li class="row" data-a="${x.a}"><a style="--c:${COLORS[i%4]}" href="${x.url||'https://open.spotify.com/artist/'+CONFIG.spotify[x.a]}" target="_blank" rel="noopener" aria-label="${x.t}, ${x.who}. Luister op Spotify">
-  <span class="n">${i+1}</span><span class="t">${x.t}</span><span class="who">${x.who}</span><span class="dur">${x.d}</span>
-  <span class="go"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>`).join('');
+const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const okUrl=u=>/^https:\/\/open\.spotify\.com\//.test(u||'')?u:'';
+let plFilter='all';
+function applyFilter(){ $$('.row',list).forEach(r=>r.classList.toggle('hide', plFilter!=='all' && r.dataset.a!==plFilter)); }
+function renderTracks(tracks){
+  list.innerHTML=tracks.map((x,i)=>{ const a=x.a==='claudia'?'claudia':'jesse';
+    return `<li class="row" data-a="${a}"><a style="--c:${COLORS[i%4]}" href="${okUrl(x.url)||'https://open.spotify.com/artist/'+CONFIG.spotify[a]}" target="_blank" rel="noopener" aria-label="${esc(x.t)}, ${esc(x.who)}. Luister op Spotify">
+  <span class="n">${i+1}</span><span class="t">${esc(x.t)}</span><span class="who">${esc(x.who)}</span><span class="dur">${esc(x.d)}</span>
+  <span class="go"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>`; }).join('');
+  applyFilter(); bindPeek();
+}
 $$('.filters button').forEach(b=>b.addEventListener('click',()=>{
   $$('.filters button').forEach(o=>o.setAttribute('aria-pressed',o===b));
-  $$('.row',list).forEach(r=>r.classList.toggle('hide', b.dataset.f!=='all' && r.dataset.a!==b.dataset.f));
+  plFilter=b.dataset.f; applyFilter();
 }));
 // zwevend rondje met de artiest bij hover
-const peek=$('.peek'), peekImg=$('img',peek);
-if(matchMedia('(hover:hover) and (pointer:fine)').matches){
-  $$('.row',list).forEach(r=>{ const a=$('a',r);
+const peek=$('.peek'), peekImg=$('img',peek), fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+function bindPeek(){ if(!fine) return;
+  $$('.row',list).forEach(r=>{
     r.addEventListener('mouseenter',()=>{ peekImg.src = r.dataset.a==='jesse'?'img/ja-cut.webp':'img/ca-cut.webp';
       peek.style.setProperty('--c', r.dataset.a==='jesse'?'#f6f1e4':'#f0661e'); peek.classList.add('on'); });
     r.addEventListener('mouseleave',()=>peek.classList.remove('on')); });
-  addEventListener('mousemove',e=>{ peek.style.left=e.clientX+'px'; peek.style.top=e.clientY+'px'; },{passive:true});
+}
+if(fine) addEventListener('mousemove',e=>{ peek.style.left=e.clientX+'px'; peek.style.top=e.clientY+'px'; },{passive:true});
+renderTracks(TRACKS);
+// Actuele releases van Spotify ophalen; lukt dat niet, dan blijft de vaste lijst staan.
+if(CONFIG.tracksEndpoint && /^https?:$/.test(location.protocol)){
+  fetch(CONFIG.tracksEndpoint,{headers:{Accept:'application/json'}})
+    .then(r=>r.ok && /json/.test(r.headers.get('content-type')||'') ? r.json() : null)
+    .then(d=>{ const t=d && Array.isArray(d.tracks) ? d.tracks.filter(x=>x && x.t && x.who && x.d) : [];
+      if(t.length){ peek.classList.remove('on'); renderTracks(t.slice(0,CONFIG.maxTracks||10)); } })
+    .catch(()=>{});
 }
 
 /* ============ LIVE EMBEDS (Spotify + YouTube) ============
@@ -1285,13 +1341,21 @@ if(embedsOK){
 }
 
 /* ============ BOEKINGSFORMULIER ============ */
-$('#bookform').addEventListener('submit',e=>{ e.preventDefault(); const f=new FormData(e.target), note=$('#booknote');
-  if(!f.get('naam')){ note.textContent='Vul even je naam in, dan weten we met wie we feest gaan vieren.'; note.classList.add('on'); $('#f-naam').focus(); return; }
-  const body=`Naam: ${f.get('naam')}\nDatum: ${f.get('datum')||'nog onbekend'}\nLocatie: ${f.get('plaats')||'-'}\nAct: ${f.get('act')}\nSoort feest: ${f.get('soort')||'-'}\n\n${f.get('bericht')||''}`;
-  if(CONFIG.bookingEmail){ location.href=`mailto:${CONFIG.bookingEmail}?subject=${encodeURIComponent('Offerteaanvraag '+f.get('act'))}&body=${encodeURIComponent(body)}`;
-    note.textContent='Je mailprogramma opent met de offerteaanvraag. Lukt dat niet? Mail naar '+CONFIG.bookingEmail+'.'; }
-  else note.textContent='Demo: de offerteaanvraag staat klaar, maar er is nog geen boekingsadres gekoppeld aan dit formulier.';
-  note.classList.add('on'); boom(innerWidth/2, innerHeight/2, 26);
+$('#bookform').addEventListener('submit',e=>{ e.preventDefault(); const form=e.target, f=new FormData(form), note=$('#booknote');
+  const say=t=>{ note.textContent=t; note.classList.add('on'); };
+  if(!f.get('naam')){ say('Vul even je naam in, dan weten we met wie we feest gaan vieren.'); $('#f-naam').focus(); return; }
+  if(!/^\S+@\S+\.\S+$/.test(f.get('email')||'')){ say('Vul een geldig e-mailadres in, dan kunnen we je de offerte sturen.'); $('#f-email').focus(); return; }
+  const data={ naam:f.get('naam'), email:f.get('email'), telefoon:f.get('telefoon')||'-', datum:f.get('datum')||'nog onbekend', locatie:f.get('plaats')||'-', act:f.get('act'), soort_feest:f.get('soort')||'-', bericht:f.get('bericht')||'' };
+  const subject='Offerteaanvraag '+data.act;
+  const body=`Naam: ${data.naam}\nE-mail: ${data.email}\nTelefoon: ${data.telefoon}\nDatum: ${data.datum}\nLocatie: ${data.locatie}\nAct: ${data.act}\nSoort feest: ${data.soort_feest}\n\n${data.bericht}`;
+  const viaMail=()=>{ location.href=`mailto:${CONFIG.bookingEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    say('Je mailprogramma opent met de offerteaanvraag. Lukt dat niet? Mail naar '+CONFIG.bookingEmail+'.'); };
+  if(CONFIG.formEndpoint){ say('Bezig met versturen...');
+    fetch(CONFIG.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:subject,_replyto:data.email,...data})})
+      .then(r=>{ if(!r.ok) throw new Error(r.status); say('Bedankt! Je aanvraag is verstuurd. Je hoort snel van ons.'); form.reset(); boom(innerWidth/2, innerHeight/2, 26); })
+      .catch(()=>viaMail());
+    return; }
+  viaMail(); boom(innerWidth/2, innerHeight/2, 26);
 });
 
 /* ============ KLIK-EFFECT: sterren-explosie ============ */
